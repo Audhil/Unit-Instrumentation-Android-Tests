@@ -1,0 +1,103 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "com.audhil.medium.gweatherapp"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "com.audhil.medium.gweatherapp.runner.UiRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    //  for testing
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    //  for android specific class testing
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            'androidx.appcompat:appcompat:' + rootProject.appCompatVersion,
+            'androidx.core:core-ktx:' + rootProject.ktxVersion,
+            'androidx.constraintlayout:constraintlayout:' + rootProject.constraintLayoutVersion,
+            'com.google.android.material:material:' + rootProject.materialLibVersion,
+
+            //  rxjava 2
+            'io.reactivex.rxjava2:rxjava:' + rootProject.rxJava2Version,
+            'io.reactivex.rxjava2:rxandroid:' + rootProject.rxAndroidVersion,
+
+            //  retrofit 2
+            'com.squareup.retrofit2:retrofit:' + rootProject.retrofit2Version,
+            'com.squareup.retrofit2:converter-gson:' + rootProject.retrofit2Version,
+            'com.squareup.retrofit2:adapter-rxjava2:' + rootProject.retrofit2Version,
+            'com.squareup.okhttp3:logging-interceptor:' + rootProject.retrofit2LoggingVersion,
+
+            //  arch components
+            'android.arch.lifecycle:extensions:' + rootProject.archComponentsVersion,
+
+            //  dagger 2
+            'com.google.dagger:dagger:' + rootProject.dagger2Version,
+
+            //  stetho for debugging
+            'com.facebook.stetho:stetho:' + rootProject.stethoVersion,
+
+            //  play services
+            'com.google.android.gms:play-services-location:' + rootProject.playServicesLocationVersion
+
+    //  room lib
+    kapt 'android.arch.persistence.room:compiler:' + rootProject.archComponentsVersion,
+
+            //  dagger 2
+            'com.google.dagger:dagger-compiler:' + rootProject.dagger2Version
+
+    kaptTest 'com.google.dagger:dagger-compiler:' + rootProject.dagger2Version
+
+    testImplementation 'junit:junit:' + rootProject.jUnitVersion,
+            'android.arch.core:core-testing:' + rootProject.archCoreVersion
+
+    androidTestImplementation 'androidx.test.ext:junit:' + rootProject.extTestRunnerVersion,
+            'androidx.test:rules:' + rootProject.testRunnerVersion,
+            'androidx.test.espresso:espresso-core:' + rootProject.espressoVersion
+
+    androidTestImplementation('com.squareup.okhttp3:mockwebserver:' + rootProject.mockWebServerVersion) {
+        exclude group: "com.squareup.okhttp3"
+    }
+
+    //  mockito
+    testImplementation 'org.mockito:mockito-core:2.19.0'
+
+
+    testImplementation "io.mockk:mockk:1.9.3"
+
+    //  power mock
+//    testImplementation 'org.powermock:powermock-api-mockito:1.6.2'
+//    testImplementation 'org.powermock:powermock-module-junit4-rule-agent:1.6.2'
+//    testImplementation 'org.powermock:powermock-module-junit4-rule:1.6.2'
+//    testImplementation 'org.powermock:powermock-module-junit4:1.6.2'
+}

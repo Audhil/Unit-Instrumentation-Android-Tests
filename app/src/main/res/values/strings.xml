@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GWeatherApp</string>
+    <string name="something_wrong">Something went wrong at our end!</string>
+    <string name="retry">Retry</string>
+    <string name="iam_sure">I\'m Sure</string>
+
+    <string name="loading">Loading</string>
+
+    <string name="day">Day</string>
+
+    <string name="city">City</string>
+
+    <string name="perm_needed">Location permission, needed to use the app</string>
+
+    <string name="no_internet">Network unavailable. Waiting for connection\u2026</string>
+</resources>

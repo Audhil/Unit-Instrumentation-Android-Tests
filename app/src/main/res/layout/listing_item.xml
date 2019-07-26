@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.audhil.medium.gweatherapp.util.ConstantsUtil"/>
+
+        <variable
+                name="cityResponse"
+                type="com.audhil.medium.gweatherapp.ui.listing.ListingAdapter.City"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="@android:color/white"
+            android:layout_height="80dp">
+
+        <TextView
+                android:id="@+id/city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/city"
+                android:textColor="@color/text_2a"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{cityResponse.cityName}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/size_16sp"/>
+        <!--android:text="@{ConstantsUtil.INSTANCE.findDayOfDate(forecast.date)}"-->
+
+        <TextView
+                android:id="@+id/degrees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_2a"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="16dp"
+                android:text="@{cityResponse.tempC}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/roboto"
+                android:textSize="@dimen/size_16sp"/>
+        <!--android:text="@{forecast.day.avgTempC.toString()+` `+`C`}"-->
+
+        <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/div_color"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
