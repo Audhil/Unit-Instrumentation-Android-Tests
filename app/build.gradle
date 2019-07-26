@@ -92,12 +92,6 @@ dependencies {
     //  mockito
     testImplementation 'org.mockito:mockito-core:2.19.0'
 
-
+    //  mockk
     testImplementation "io.mockk:mockk:1.9.3"
-
-    //  power mock
-//    testImplementation 'org.powermock:powermock-api-mockito:1.6.2'
-//    testImplementation 'org.powermock:powermock-module-junit4-rule-agent:1.6.2'
-//    testImplementation 'org.powermock:powermock-module-junit4-rule:1.6.2'
-//    testImplementation 'org.powermock:powermock-module-junit4:1.6.2'
 }
